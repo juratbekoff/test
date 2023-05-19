@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { ContentView, SidebarView } from "./pages"
+import { SidebarView, ContentView } from "./pages"
 import { Navbar } from "./components"
 
 const App = () => {
@@ -11,14 +11,11 @@ const App = () => {
       <div className="container w-full m-auto">
         <div className="flex flex-row w-[80%] m-auto">
           <SidebarView />
-          <ContentView />
+          <Routes>
+            <Route path="/year/:id" element={<ContentView />} />
+          </Routes>
         </div>
       </div>
-
-      <Routes>
-        <Route path="/" exact element={<Navbar />} />
-        <Route path="/year/:id" element={<ContentView />} />
-      </Routes>
     </>
   )
 }

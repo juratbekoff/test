@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { Sidebar } from "../components"
 import { yearService } from "../service"
-import { useParams } from "react-router-dom"
 
 const SidebarView = () => {
 
     const [years, setYears] = useState([])
-
     const { id } = useParams()
-    
+
     const getYears = () => {
         yearService.getYears()
             .then(res => {

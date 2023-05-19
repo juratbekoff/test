@@ -8,7 +8,7 @@ const ContentView = () => {
     const { id } = useParams()
     const [details, setDetails] = useState({})
 
-    const getDetails = () => {
+    const getDetails = (id) => {
         yearService.getYearsContent(id)
             .then(res => {
                 setDetails(res.data.data)
@@ -17,11 +17,14 @@ const ContentView = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => getDetails(), [id])
+    useEffect(() => getDetails(id), [id])
+
+    console.log(details);
 
     return (
         <Content key={details.id} {...details} />
     )
 }
+
 
 export default ContentView

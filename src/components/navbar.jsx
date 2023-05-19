@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom"
+
 const Navbar = () => {
     return (
         <div className="container w-full m-auto ">
             <nav className="flex flex-row justify-around px-0 py-[20px] w-full">
-                <img src="/images/Logo.svg" className="h-[55px] m-0 p-0 cursor-pointer" alt="#" />
+                <Link to={'/'}>
+                    <img src="/images/Logo.svg" className="h-[55px] m-0 p-0 cursor-pointer" alt="#" />
+                </Link>
                 <div className="flex flex-row gap-24 items-center text-[17px]">
                     <a href="#" className="bg-[#D0D2D5] px-10 py-[5px] rounded-[16px]">Yillar</a>
                     <a href="#" className="text-[#fff]">Asrlar</a>
