@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom"
-import { SidebarView, ContentView } from "./pages"
-import { Navbar } from "./components"
+import { Route, Routes } from "react-router-dom";
+import { SidebarView, ContentView } from "./pages";
+import { Navbar } from "./components";
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

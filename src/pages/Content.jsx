@@ -1,30 +1,26 @@
-import { useParams } from "react-router-dom"
-import { Content } from "../components"
-import { yearService } from "../service"
-import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
+import { Content } from "../components";
+import { yearService } from "../service";
+import { useEffect, useState } from "react";
 
 const ContentView = () => {
+  const { id } = useParams();
+  const [details, setDetails] = useState({});
 
-    const { id } = useParams()
-    const [details, setDetails] = useState({})
+  const getDetails = (id) => {
+    yearService
+      .getYearsContent(id)
+      .then((res) => {
+        setDetails(res.data.data);
+      })
+      .catch((e) => console.log(e));
+  };
 
-    const getDetails = (id) => {
-        yearService.getYearsContent(id)
-            .then(res => {
-                setDetails(res.data.data)
-            })
-            .catch(e => console.log(e))
-    }
+  useEffect(() => getDetails(id), [id]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => getDetails(id), [id])
+  console.log(details);
 
-    console.log(details);
+  return <Content key={details.id} {...details} />;
+};
 
-    return (
-        <Content key={details.id} {...details} />
-    )
-}
-
-
-export default ContentView
+export default ContentView;
